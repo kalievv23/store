@@ -1,12 +1,16 @@
 import React from "react";
 import Product from "./Product";
 import { styled } from "styled-components";
-import { Items } from "../../store/Products";
+import { useSelector } from "react-redux";
 
 const Products = () => {
+
+  const { filteredItems, items } = useSelector(state => state.products)
+  console.log(filteredItems);
+
   return (
     <Wrapper>
-      {Items.map((el) => (
+      {filteredItems.map((el) => (
         <Card>
           <Product key={el.id} title={el.title} url={el.url} price={el.price}/>
         </Card>
@@ -20,7 +24,6 @@ export default Products;
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  
 `;
 
 const Card = styled.div`

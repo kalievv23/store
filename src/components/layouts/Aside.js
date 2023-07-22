@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { styled } from 'styled-components'
-
+import { useDispatch } from 'react-redux'
+import { filterByTitle } from '../store/slices/ProductSlice'
+ 
 const Aside = () => {
+  const dispatch = useDispatch()
+  const [isChecked, setIsChecked] = useState({
+    xiaomi: false,
+    realmi: false,
+    iphone: false,
+    samsung: false,
+    huawei: false,
+  })
+
+  const brendPhoenHandler = (e) => {
+    const { name, checked } = e.target
+    setIsChecked({
+      ...isChecked,
+      [name]: checked
+    })
+    dispatch(filterByTitle(name))
+  }
+
   return (
     
 <Wrapper>
@@ -16,11 +36,11 @@ const Aside = () => {
   
       <BrendCont>
         <h4>Бренд</h4>
-        <div><input type="checkbox" /><span>Xiaomi</span></div>
-        <div><input type="checkbox" /><span>Realmi</span></div>
-        <div><input type="checkbox" /><span>Iphone</span></div>
-        <div><input type="checkbox" /><span>Samsung</span></div>
-        <div><input type="checkbox" /><span>Huawei</span></div>
+        <div><input name='xiaomi' checked={isChecked.xiaomi} onChange={brendPhoenHandler} type="checkbox" /><span>Xiaomi</span></div>
+        <div><input name='realmi' checked={isChecked.realmi} onChange={brendPhoenHandler} type="checkbox" /><span>Realmi</span></div>
+        <div><input name='iphone' checked={isChecked.iphone} onChange={brendPhoenHandler} type="checkbox" /><span>Iphone</span></div>
+        <div><input name='samsung' checked={isChecked.samsung} onChange={brendPhoenHandler} type="checkbox" /><span>Samsung</span></div>
+        <div><input name='huawei' checked={isChecked.huawei} onChange={brendPhoenHandler} type="checkbox" /><span>Huawei</span></div>
 
       </BrendCont>
       <PamitCont>
