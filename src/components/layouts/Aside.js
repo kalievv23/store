@@ -4,7 +4,7 @@ import { styled } from 'styled-components'
 const Aside = () => {
   return (
     
-<>
+<Wrapper>
       <InpContainer>
         <div>
         <h4>Цена</h4>
@@ -31,27 +31,26 @@ const Aside = () => {
         <div><input type="checkbox" /><span>256гб</span></div>
 
       </PamitCont>
-</>
+</Wrapper>
   )
 }
 
 export default Aside
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0 0 0 20px;
+`
 
 const InpContainer = styled.div`
-  /* border: 1px solid ; */
   width: 290px;
-  padding: 30px;
-  /* height: 100px; */
-  /* display: flex; */
-  margin-left: 30px;
   & div{
-    /* border: 1px solid; */
     width: 50px;
     height: 30px;
     text-align: center;
     display: flex;
-    /* align-items: center; */
   }
 
 `
@@ -59,7 +58,6 @@ const InpContainer = styled.div`
 const Inpclass = styled.input`
   width: 120px;
   height: 30px;
-  /* border: 1px solid; */
   margin-top: 50px;
   margin-right: 10px;
   border-radius: 5px;
@@ -68,13 +66,9 @@ const Inpclass = styled.input`
 `
 
 const BrendCont = styled.div`
-  /* border: 1px solid; */
   width: 290px;
-  margin-left: 60px;
 `
 
 const PamitCont = styled.div`
-  /* border: 1px solid ; */
   width: 290px;
-  margin-left: 60px;
 `

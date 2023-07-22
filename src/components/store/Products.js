@@ -11,7 +11,7 @@ import phone10 from "../../assets/images/phone10.webp";
 import phone11 from "../../assets/images/phone11.webp";
 import phone12 from "../../assets/images/phone12.webp";
 
-export const Products = [
+export const Items = [
   {
     id: 1,
     title: "Apple iPhone 14 Plus",
@@ -39,7 +39,7 @@ export const Products = [
   {
     id: 5,
     title: "Смартфон Realme 11 Pro",
-    price: "",
+    price: "27900",
     url: phone5,
   },
   {
@@ -63,7 +63,7 @@ export const Products = [
   {
     id: 9,
     title: "Смартфон Apple iPhone 14 Pro Max",
-    price: "",
+    price: "137800",
     url: phone9,
   },
   {
