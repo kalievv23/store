@@ -37,7 +37,7 @@ const Aside = () => {
       <BrendCont>
         <h4>Бренд</h4>
         <div><input name='xiaomi' checked={isChecked.xiaomi} onChange={brendPhoenHandler} type="checkbox" /><span>Xiaomi</span></div>
-        <div><input name='realmi' checked={isChecked.realmi} onChange={brendPhoenHandler} type="checkbox" /><span>Realmi</span></div>
+        <div><input name='realme' checked={isChecked.realmi} onChange={brendPhoenHandler} type="checkbox" /><span>Realmi</span></div>
         <div><input name='iphone' checked={isChecked.iphone} onChange={brendPhoenHandler} type="checkbox" /><span>Iphone</span></div>
         <div><input name='samsung' checked={isChecked.samsung} onChange={brendPhoenHandler} type="checkbox" /><span>Samsung</span></div>
         <div><input name='huawei' checked={isChecked.huawei} onChange={brendPhoenHandler} type="checkbox" /><span>Huawei</span></div>
