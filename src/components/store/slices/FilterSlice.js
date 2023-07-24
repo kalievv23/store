@@ -35,6 +35,7 @@ const FilterSlice = createSlice({
     },
     filterByPrice: (state, action) => {
       const { min, max } = action.payload;
+      console.log(min, max);
       if (min >= 1400 && 149000 >= min) {
         state.filters.price = {
           ...state.filters.price,
@@ -45,7 +46,19 @@ const FilterSlice = createSlice({
           ...state.filters.price,
           max: max,
         }
+      } else if (max === '' || min === ''){
+        state.filters.price = {
+          ...state.filters.price,
+          max: '',
+          min: '',
+        }
       }
+    },
+    ascendingSortByPrice: (state, action) => {
+      console.log(action.payload);
+    },
+    ascendingSortByPrice: (state, action) => {
+      console.log(action.payload);
     },
   },
 });
@@ -56,5 +69,6 @@ export const {
   filterByMemory,
   removeFilterByMemory,
   filterByPrice,
+  sortByPrice,
 } = FilterSlice.actions;
 export default FilterSlice.reducer;
