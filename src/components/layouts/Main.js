@@ -7,9 +7,9 @@ const Main = () => {
     <div>
       <Header>
         <span>Сортировать по:</span>
-        <span>Популярности</span>
-        <span>Возврастанию цены</span>
-        <span>Новизне</span>
+        <span className="sort">Популярности</span>
+        <span className="sort">Возврастанию цены</span>
+        <span className="sort">Убыванию цены</span>
       </Header>
       <Products />
     </div>
@@ -22,8 +22,14 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   font-weight: 600;
-  color: #999999;
-  width: 60%;
+  color: #666666;
+  width: 800px;
   padding: 20px;
   font-size: 17px;
+  & .sort {
+    cursor: pointer;
+    &:hover {
+      color: #999999;
+    }
+  }
 `;
