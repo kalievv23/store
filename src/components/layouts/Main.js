@@ -1,15 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import Products from "../pages/products/Products";
 import { styled } from "styled-components";
+import { useDispatch } from "react-redux";
+import { setAscendingSort, setDescendingSort } from "../store/slices/SortSlice";
 
 const Main = () => {
+  const dispatch = useDispatch();
+  const [ascending, setAscending] = useState(false);
+  const [descending, setDescendign] = useState(false);
+
+  const ascendingHandler = () => {
+    setAscending((prev) => !prev)
+    setDescendign(false)
+    if (!ascending) {
+      dispatch(setAscendingSort('ascending'))
+    }
+    if (ascending) {
+      dispatch(setAscendingSort('none'))
+    }
+  };
+  const descendingHandler = () => {
+    setDescendign((prev) => !prev)
+    setAscending(false)
+    if (!descending) {
+      dispatch(setDescendingSort('descending'))
+    }
+    if (descending) {
+      dispatch(setDescendingSort('none'))
+    }
+  }
+
   return (
     <div>
       <Header>
         <span>Сортировать по:</span>
         <span className="sort">Популярности</span>
-        <span className="sort">Возврастанию цены</span>
-        <span className="sort">Убыванию цены</span>
+        <span
+          onClick={ascendingHandler}
+          className="sort"
+        >
+          Возврастанию цены
+        </span>
+        <span
+          onClick={descendingHandler}
+          className="sort"
+        >
+          Убыванию цены
+        </span>
       </Header>
       <Products />
     </div>

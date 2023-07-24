@@ -8,9 +8,9 @@ const Products = () => {
   const { title, memory, price } = useSelector(
     (state) => state.filters.filters
   );
-  console.log(price);
+  const { sortType } = useSelector((state) => state.sorts);
 
-  const filteredProducts = Items.filter(
+  let filteredProducts = Items.filter(
     (product) =>
       (title.length === 0 ||
         title.some((filterWord) =>
@@ -18,9 +18,19 @@ const Products = () => {
         )) &&
       (memory.length === 0 ||
         memory.some((filterWord) => product.title.includes(filterWord))) &&
-      ((price.min <= 1400 && price.max <= price.min) ||
+      ((price.min <= 1400 && price.max >= price.min) ||
         (product.price > price.min && product.price < price.max))
   );
+
+  if (sortType === "none") {
+    filteredProducts = filteredProducts;
+  }
+  if (sortType === "ascending") {
+    filteredProducts = filteredProducts.sort((a, b) => a.price - b.price);
+  }
+  if (sortType === "descending") {
+    filteredProducts = filteredProducts.sort((a, b) => b.price - a.price);
+  }
 
   return (
     <Wrapper>

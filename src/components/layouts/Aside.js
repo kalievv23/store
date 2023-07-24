@@ -39,6 +39,11 @@ const Aside = () => {
         [name]: value
       }))
     }
+    if (!value.length) {
+      dispatch(filterByPrice({
+        [name]: value
+      }))
+    }
   }
 
   return (
@@ -54,46 +59,46 @@ const Aside = () => {
       <BrendCont>
         <h4>Бренд</h4>
         <div>
-          <input name="xiaomi" onChange={brendPhoneHandler} type="checkbox" />
+          <InputStyled name="xiaomi" onChange={brendPhoneHandler} type="checkbox" />
           <span>Xiaomi</span>
         </div>
         <div>
-          <input name="realme" onChange={brendPhoneHandler} type="checkbox" />
+          <InputStyled name="realme" onChange={brendPhoneHandler} type="checkbox" />
           <span>Realme</span>
         </div>
         <div>
-          <input name="iphone" onChange={brendPhoneHandler} type="checkbox" />
+          <InputStyled name="iphone" onChange={brendPhoneHandler} type="checkbox" />
           <span>Iphone</span>
         </div>
         <div>
-          <input name="samsung" onChange={brendPhoneHandler} type="checkbox" />
+          <InputStyled name="samsung" onChange={brendPhoneHandler} type="checkbox" />
           <span>Samsung</span>
         </div>
         <div>
-          <input name="huawei" onChange={brendPhoneHandler} type="checkbox" />
+          <InputStyled name="huawei" onChange={brendPhoneHandler} type="checkbox" />
           <span>Huawei</span>
         </div>
       </BrendCont>
       <PamitCont>
         <h4>Память</h4>
         <div>
-          <input name="32" onChange={memoryPhoneHandler} type="checkbox" />
+          <InputStyled name="32" onChange={memoryPhoneHandler} type="checkbox" />
           <span>32гб</span>
         </div>
         <div>
-          <input name="64" onChange={memoryPhoneHandler} type="checkbox" />
+          <InputStyled name="64" onChange={memoryPhoneHandler} type="checkbox" />
           <span>64гб</span>
         </div>
         <div>
-          <input name="128" onChange={memoryPhoneHandler} type="checkbox" />
+          <InputStyled name="128" onChange={memoryPhoneHandler} type="checkbox" />
           <span>128гб</span>
         </div>
         <div>
-          <input name="256" onChange={memoryPhoneHandler} type="checkbox" />
+          <InputStyled name="256" onChange={memoryPhoneHandler} type="checkbox" />
           <span>256гб</span>
         </div>
         <div>
-          <input name="512" onChange={memoryPhoneHandler} type="checkbox" />
+          <InputStyled name="512" onChange={memoryPhoneHandler} type="checkbox" />
           <span>512гб</span>
         </div>
       </PamitCont>
@@ -109,6 +114,8 @@ const Wrapper = styled.div`
   align-items: start;
   padding: 0 0 0 20px;
 `;
+
+const InputStyled = styled.input.attrs({type: 'checkbox'})``
 
 const InpContainer = styled.div`
   width: 290px;
