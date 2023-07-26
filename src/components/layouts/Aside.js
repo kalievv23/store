@@ -115,7 +115,9 @@ const Wrapper = styled.div`
   padding: 0 0 0 20px;
 `;
 
-const InputStyled = styled.input.attrs({type: 'checkbox'})``
+const InputStyled = styled.input.attrs({type: 'checkbox'})`
+  cursor: pointer;
+`
 
 const InpContainer = styled.div`
   width: 290px;
@@ -142,3 +144,4 @@ const BrendCont = styled.div`
 const PamitCont = styled.div`
   width: 290px;
 `;
+
