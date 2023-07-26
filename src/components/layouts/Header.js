@@ -116,7 +116,6 @@ const HeaderInp = styled.div`
     width: 450px;
     height: 50px;
     outline: none;
-    border-radius: 8px 0 0 8px;
   }
   & button {
     width: 90px;
