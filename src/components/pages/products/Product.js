@@ -3,6 +3,8 @@ import { styled } from "styled-components";
 import MuiButton from "../../UI/MuiButton";
 
 const Product = ({ url, title, price }) => {
+  
+
   return (
     <Wrapper>
       <PhoneImg url={url}>
