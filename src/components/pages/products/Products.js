@@ -18,8 +18,8 @@ const Products = () => {
         )) &&
       (memory.length === 0 ||
         memory.some((filterWord) => product.title.includes(filterWord))) &&
-      ((price.min <= 1400 && price.max >= price.min) ||
-        (product.price > price.min && product.price < price.max))
+      ((price.none === "none") ||
+        (+product.price > +price.min && +product.price < +price.max))
   );
 
   if (sortType === "none") {
@@ -36,7 +36,7 @@ const Products = () => {
     <Wrapper>
       {filteredProducts.map((el) => (
         <Card>
-          <Product key={el.id} title={el.title} url={el.url} price={el.price} />
+          <Product key={el.id} id={el.id} title={el.title} url={el.url} price={el.price} />
         </Card>
       ))}
     </Wrapper>

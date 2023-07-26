@@ -7,6 +7,7 @@ const initialState = {
     price: {
       min: "",
       max: "",
+      none: "none",
     },
   },
 };
@@ -35,30 +36,32 @@ const FilterSlice = createSlice({
     },
     filterByPrice: (state, action) => {
       const { min, max } = action.payload;
-      console.log(min, max);
-      if (min >= 1400 && 149000 >= min) {
+      const price = state.filters.price;
+      if (min >= 1400 && 149000 > min) {
         state.filters.price = {
-          ...state.filters.price,
+          ...price,
           min: min,
+          none: "",
         };
-      } else if (max <= 149000 && 1400 <= max) {
+      } else if (max <= 149000 && 1400 < max && state.filters.price.min < max) {
         state.filters.price = {
-          ...state.filters.price,
+          ...price,
           max: max,
-        }
-      } else if (max === '' || min === ''){
-        state.filters.price = {
-          ...state.filters.price,
-          max: '',
-          min: '',
-        }
+          none: "",
+        };
       }
-    },
-    ascendingSortByPrice: (state, action) => {
-      console.log(action.payload);
-    },
-    ascendingSortByPrice: (state, action) => {
-      console.log(action.payload);
+      else if (
+        price.min > price.max ||
+        max === "" ||
+        min === "" ||
+        price.min === "" ||
+        price.max === ""
+      ) {
+        state.filters.price = {
+          ...price,
+          none: "none",
+        };
+      }
     },
   },
 });
@@ -69,6 +72,5 @@ export const {
   filterByMemory,
   removeFilterByMemory,
   filterByPrice,
-  sortByPrice,
 } = FilterSlice.actions;
 export default FilterSlice.reducer;
