@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
+import Basket from "../pages/basket/basket";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 const Header = () => {
+  const [hovered, setHovered] = useState(false)
+
+  const showBasket = () => {
+    setHovered(true)
+    console.log("showed");
+  };
+  const hideBasket = () => {
+    setHovered(false)
+    console.log("hided");
+  };
   return (
     <>
       <HeaderCont>
@@ -47,7 +60,10 @@ const Header = () => {
             </svg>
             <span>Избранное</span>
           </Contdiv>
-          <Contdiv>
+          <Contdiv
+            className="basketActive"
+            onMouseEnter={showBasket}
+          >
             <svg
               width="28"
               height="28"
@@ -65,6 +81,7 @@ const Header = () => {
           </Contdiv>
         </Sections>
       </HeaderInp>
+      {hovered && <Basket showBasket={showBasket} hideBasket={hideBasket}/>}
     </>
   );
 };
@@ -72,7 +89,6 @@ const Header = () => {
 export default Header;
 
 const HeaderCont = styled.div`
-  border: 1px solid;
   width: 100%;
   text-align: center;
   background: rgb(2, 0, 36);
@@ -100,6 +116,7 @@ const HeaderInp = styled.div`
     width: 450px;
     height: 50px;
     outline: none;
+    border-radius: 8px 0 0 8px;
   }
   & button {
     width: 90px;
@@ -119,6 +136,12 @@ const Sections = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  & .basketActive {
+    cursor: pointer;
+    &:hover {
+      /* ${(props) => `${props.showBasket}`} */
+    }
   }
 `;
 
