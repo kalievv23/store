@@ -36,7 +36,7 @@ const Products = () => {
     <Wrapper>
       {filteredProducts.map((el) => (
         <Card>
-          <Product key={el.id} title={el.title} url={el.url} price={el.price} />
+          <Product key={el.id} id={el.id} title={el.title} url={el.url} price={el.price} />
         </Card>
       ))}
     </Wrapper>
