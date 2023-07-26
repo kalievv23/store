@@ -18,8 +18,8 @@ const Products = () => {
         )) &&
       (memory.length === 0 ||
         memory.some((filterWord) => product.title.includes(filterWord))) &&
-      ((price.min <= 1400 && price.max >= price.min) ||
-        (product.price > price.min && product.price < price.max))
+      ((price.none === "none") ||
+        (+product.price > +price.min && +product.price < +price.max))
   );
 
   if (sortType === "none") {

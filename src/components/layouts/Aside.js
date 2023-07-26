@@ -34,16 +34,7 @@ const Aside = () => {
 
   const pricePhoneHandler = (e) => {
     const { value, name } = e.target
-    if (value.length) {
-      dispatch(filterByPrice({
-        [name]: value
-      }))
-    }
-    if (!value.length) {
-      dispatch(filterByPrice({
-        [name]: value
-      }))
-    }
+      dispatch(filterByPrice({[name]: value}))
   }
 
   return (
