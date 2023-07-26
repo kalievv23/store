@@ -7,10 +7,10 @@ import { styled } from 'styled-components'
 const Home = () => {
   return (
     <>
-      <Header/>
+      <Header/>  
       <AsideWhithMain>
         <Aside/>
-        <Main/>
+        <Main/>        
       </AsideWhithMain>
     </>
   )
