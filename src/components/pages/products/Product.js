@@ -1,9 +1,14 @@
 import React from "react";
 import { styled } from "styled-components";
 import MuiButton from "../../UI/MuiButton";
+import { useNavigate } from "react-router-dom";
 
-const Product = ({ url, title, price }) => {
+const Product = ({ id, url, title, price }) => {
+  const navigate = useNavigate()
   
+  const addProductHandler = (id) => {
+    // const obj = 
+  }
 
   return (
     <Wrapper>
@@ -29,7 +34,7 @@ const Product = ({ url, title, price }) => {
         <Title>{title}</Title>
       </InfoAboutPhone>
       <Button>
-        <MuiButton width="300px" variant="contained">
+        <MuiButton onClick={() => addProductHandler(id)} width="300px" variant="contained">
           <span>В корзину</span>
         </MuiButton>
       </Button>
