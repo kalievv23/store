@@ -5,12 +5,12 @@ import { styled } from "styled-components";
 
 const Modal = (props) => {
   const modalRoot = document.getElementById("modal-root");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return ReactDOM.createPortal(
     <>
-      <Backdrop></Backdrop>
-      <ModalContent>{props.children}</ModalContent>
+      <Backdrop onClick={() => navigate(-1)}></Backdrop>
+      <ModalContent style={props}>{props.children}</ModalContent>
     </>,
     modalRoot
   );
@@ -25,7 +25,6 @@ const Backdrop = styled.div`
   background-color: #000000;
   opacity: 30%;
   height: 100vh;
-  overflow: hidden;
 `;
 const ModalContent = styled.div`
   background-color: #f2f2f2;
@@ -33,7 +32,6 @@ const ModalContent = styled.div`
   padding: 10px;
   border-radius: 10px;
   position: fixed;
-  top: 43%;
-  left: 73%;
-  transform: translate(-50%, -50%);
+  top: ${(props) => props.top || "50%"};
+  left: ${(props) => props.left || "50%"};
 `;

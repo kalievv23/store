@@ -1,13 +1,20 @@
 import React from "react";
 import { styled } from "styled-components";
 import MuiButton from "../../UI/MuiButton";
-import { useNavigate } from "react-router-dom";
+import { addProduct } from "../../store/slices/BasketSlice";
+import { useDispatch } from "react-redux";
 
 const Product = ({ id, url, title, price }) => {
-  const navigate = useNavigate()
-  
+const dispatch = useDispatch()  
   const addProductHandler = (id) => {
-    // const obj = 
+    const product = {
+      id,
+      url,
+      title,
+      price,
+      quantity: 1,
+    }
+    dispatch(addProduct(product))
   }
 
   return (

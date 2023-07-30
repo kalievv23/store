@@ -14,7 +14,6 @@ const Home = () => {
       </AsideWhithMain>
     </>
   )
-
 }
 
 export default Home

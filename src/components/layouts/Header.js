@@ -1,19 +1,23 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import Basket from "../pages/basket/basket";
-import { hover } from "@testing-library/user-event/dist/hover";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [hovered, setHovered] = useState(false)
+  const navigate = useNavigate()
 
+  const {phoneNumber} = useSelector(state => state.user)
+
+  const [hovered, setHovered] = useState(false);
+  const body = document.querySelector("body");
   const showBasket = () => {
-    setHovered(true)
-    console.log("showed");
+    setHovered(true);
+    body.style.overflow = "hidden";
   };
   const hideBasket = () => {
-    setHovered(false)
-    console.log("hided");
+    setHovered(false);
+    body.style.overflow = "scroll"
   };
   return (
     <>
@@ -29,7 +33,7 @@ const Header = () => {
         </div>
 
         <Sections>
-          <div>
+          <div className="signUp" onClick={() => navigate("/sign_up")}>
             <svg
               width="28"
               height="28"
@@ -43,7 +47,7 @@ const Header = () => {
                 stroke-linejoin="round"
               ></path>
             </svg>
-            <span>Войти</span>
+            <span>{phoneNumber || 'Войти'}</span>
           </div>
           <Contdiv>
             <svg
@@ -60,10 +64,7 @@ const Header = () => {
             </svg>
             <span>Избранное</span>
           </Contdiv>
-          <Contdiv
-            className="basketActive"
-            onMouseEnter={showBasket}
-          >
+          <Contdiv className="basketActive" onMouseEnter={showBasket}>
             <svg
               width="28"
               height="28"
@@ -81,7 +82,7 @@ const Header = () => {
           </Contdiv>
         </Sections>
       </HeaderInp>
-      {hovered && <Basket showBasket={showBasket} hideBasket={hideBasket}/>}
+      {hovered && <Basket showBasket={showBasket} hideBasket={hideBasket} />}
     </>
   );
 };
@@ -89,6 +90,7 @@ const Header = () => {
 export default Header;
 
 const HeaderCont = styled.div`
+  border: 1px solid;
   width: 100%;
   text-align: center;
   background: rgb(2, 0, 36);
@@ -138,9 +140,9 @@ const Sections = styled.div`
   }
   & .basketActive {
     cursor: pointer;
-    &:hover {
-      /* ${(props) => `${props.showBasket}`} */
-    }
+  }
+  & .signUp {
+    cursor: pointer;
   }
 `;
 
