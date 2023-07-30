@@ -15,7 +15,7 @@ export const Items = [
   {
     id: 1,
     title: "Apple iPhone 14 Plus (8+128) EU",
-    price: "97990",
+    price: "92800",
     url: phone1,
   },
   {
