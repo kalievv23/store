@@ -11,7 +11,6 @@ function Caunter(props) {
   const navigate = useNavigate();
   const [count, setCount] = useState(props.quantity);
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log([...searchParams.values()]);
   const obj = {
     count: count,
     id: props.id,

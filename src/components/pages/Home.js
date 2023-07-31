@@ -1,23 +1,24 @@
-import React from 'react'
-import Header from '../layouts/Header'
-import Main from '../layouts/Main'
-import Aside from '../layouts/Aside'
-import { styled } from 'styled-components'
+import React from "react";
+import Header from "../layouts/Header";
+import Main from "../layouts/Main";
+import Aside from "../layouts/Aside";
+import { styled } from "styled-components";
 
 const Home = () => {
   return (
     <>
-      <Header/>  
+      <Header />
       <AsideWhithMain>
-        <Aside/>
-        <Main/>        
+        <Aside />
+        <Main />
       </AsideWhithMain>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
 const AsideWhithMain = styled.div`
+  margin-top: 170px;
   display: flex;
-`
+`;

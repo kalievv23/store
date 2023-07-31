@@ -17,6 +17,7 @@ const Modal = (props) => {
 };
 export default Modal;
 const Backdrop = styled.div`
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
@@ -27,6 +28,7 @@ const Backdrop = styled.div`
   height: 100vh;
 `;
 const ModalContent = styled.div`
+  z-index: 3;
   background-color: #f2f2f2;
   box-shadow: 0 0 7px 0.01px #d1d1d1;
   padding: 10px;

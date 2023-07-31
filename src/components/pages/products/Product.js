@@ -1,12 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
 import MuiButton from "../../UI/MuiButton";
-import { addProduct } from "../../store/slices/BasketSlice";
-import { useDispatch } from "react-redux";
 
-const Product = ({ id, url, title, price }) => {
-const dispatch = useDispatch()  
-  const addProductHandler = (id) => {
+const Product = ({ id, url, title, price, onAddToBasket }) => {
+  const addProductHandler = (e, id) => {
     const product = {
       id,
       url,
@@ -14,7 +11,7 @@ const dispatch = useDispatch()
       price,
       quantity: 1,
     }
-    dispatch(addProduct(product))
+    onAddToBasket(e, product)
   }
 
   return (
@@ -41,7 +38,7 @@ const dispatch = useDispatch()
         <Title>{title}</Title>
       </InfoAboutPhone>
       <Button>
-        <MuiButton onClick={() => addProductHandler(id)} width="300px" variant="contained">
+        <MuiButton onClick={(e) => addProductHandler(e, id)} width="300px" variant="contained">
           <span>В корзину</span>
         </MuiButton>
       </Button>
