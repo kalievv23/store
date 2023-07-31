@@ -34,7 +34,6 @@ const Main = () => {
     <div>
       <Header>
         <span>Сортировать по:</span>
-        <span className="sort">Популярности</span>
         <span
           onClick={ascendingHandler}
           className="sort"
@@ -60,7 +59,7 @@ const Header = styled.header`
   justify-content: space-between;
   font-weight: 600;
   color: #666666;
-  width: 800px;
+  width: 650px;
   padding: 20px;
   font-size: 17px;
   & .sort {

@@ -10,6 +10,7 @@ const initialState = {
       none: "none",
     },
   },
+  filterBySearch: ""
 };
 
 const FilterSlice = createSlice({
@@ -63,6 +64,9 @@ const FilterSlice = createSlice({
         };
       }
     },
+    filterBySearch: (state, action) => {
+      state.filterBySearch = action.payload
+    }
   },
 });
 
@@ -72,5 +76,6 @@ export const {
   filterByMemory,
   removeFilterByMemory,
   filterByPrice,
+  filterBySearch,
 } = FilterSlice.actions;
 export default FilterSlice.reducer;
